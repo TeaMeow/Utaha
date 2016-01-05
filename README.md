@@ -22,26 +22,13 @@
 
 # 範例
 
+![dd](http://imgur.com/x2KuEyg.png)
 ```html
-<!-- 群組 -->
-<div class="group">
-
-  <!-- 群組的標題 -->
-  <h2 class="title"></h2>
-  <!-- / 群組的標題 -->
+<!-- 示範 -->
+<div class="example"></div>
+<!-- / 示範 -->
   
-  <!-- 示範的標題 -->
-  <h3 class="example-title"></h3>
-  <!-- / 示範的標題 -->
-  
-  <!-- 示範 -->
-  <div class="example"></div>
-  <!-- / 示範 -->
-  
-  <!-- 原始碼輸出區 -->
-  <div class="code"><div>
-  <!--/  原始碼輸出區 -->
-  
-</div>
-<!-- / 群組 -->
+<!-- 原始碼輸出區 -->
+<div class="code"><div>
+<!--/  原始碼輸出區 -->
 ```
