@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function(event)
         var sourceCode      = previewContainer.innerHTML.trim()
         var sourceCode      = style_html(sourceCode, style_html_options)
         var codeElement     = document.createElement("code")
+        var importantPart   = sourceContainer.getAttribute('data-important-class')
         
         codeElement.className = 'html';
         
@@ -33,5 +34,31 @@ document.addEventListener('DOMContentLoaded', function(event)
         codeContainer.textContent = sourceCode
         
         hljs.highlightBlock(codeContainer)
+        
+        
+        
+        
+        
+        
+        if(typeof importantPart == 'undefined')
+            continue
+        
+        var importantPart = importantPart.split(', ')
+        
+        for(var thisPart in importantPart)
+        {
+            var thisPart = importantPart[thisPart]
+            var strings  = examples[i].querySelectorAll('.code .html .hljs-string')
+            
+            for(var j = 0; j < strings.length; j++)
+            {
+                if(strings[j].innerHTML.indexOf(thisPart) == -1)
+                    continue
+                
+                strings[j].innerHTML = strings[j].innerHTML.replace(thisPart, '<span class="hljs-important">' + thisPart + '</span>')
+            }
+        }
     }
+    
+    
 });
