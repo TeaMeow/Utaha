@@ -10,24 +10,34 @@ var style_html_options = { 'indent_size' : 4 }
 /**
  * Utaha
  */
- 
-document.addEventListener('DOMContentLoaded', function(event)
-{ 
+
+var utaha = function(options)
+{
+    var options                  = options || {}
+        options.exampleContainer = options.exampleContainer || '.example'
+        options.previewContainer = options.previewContainer || '.preview'
+        options.codeConrainer    = options.codeConrainer    || '.code'
+        options.insertBeforeCode = options.insertBeforeCode || ''
+        options.insertAfterCode  = options.insertAfterCode  || ''
+        
+        
+        
+        
     /** Get all the example containers first */
-    var examples = document.querySelectorAll('.example');
+    var examples = document.querySelectorAll(options.exampleContainer);
     
     /** Now with each example container */
     for(var i = 0; i < examples.length; i++)
     {
         /** Get the preview container */
-        var previewContainer = examples[i].querySelectorAll('.preview')[0]
+        var previewContainer = examples[i].querySelectorAll(options.previewContainer)[0]
     
         /** To the next example container if no preview container was found */
         if(previewContainer == 'undefined')
             continue
         
         /** Defined the source container, used to show the source code of the preview container */
-        var sourceContainer = examples[i].querySelectorAll('.code')[0]
+        var sourceContainer = examples[i].querySelectorAll(options.codeConrainer)[0]
         /** Get the souce code of the preview container, and remove the unnecessary spaces */
         var sourceCode      = previewContainer.innerHTML.trim()
         /** Now tidy the html up */
@@ -43,8 +53,12 @@ document.addEventListener('DOMContentLoaded', function(event)
         /** Append the code element into the source container */
         sourceContainer.appendChild(codeElement);
         
+        sourceContainer.innerHTML = options.insertBeforeCode  + 
+                                    sourceContainer.innerHTML + 
+                                    options.insertAfterCode
+        
         /** Now get the code element which is inside of the source container */
-        var codeContainer = examples[i].querySelectorAll('.code .html')[0]
+        var codeContainer = examples[i].querySelectorAll(options.codeConrainer + ' .html')[0]
         
         /** Now paste the source code into it */
         codeContainer.textContent = sourceCode
@@ -69,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function(event)
         {
             var thisPart     = importantPart[thisPart]
             /** Get all the tags which used to highlight the class names */
-            var strings      = examples[i].querySelectorAll('.code .html .hljs-string')
+            var strings      = examples[i].querySelectorAll(options.codeConrainer + ' .html .hljs-string')
             var replacePart  = '<span class="hljs-important-class">' + thisPart + '</span>'
             
             
@@ -85,6 +99,4 @@ document.addEventListener('DOMContentLoaded', function(event)
             }
         }
     }
-    
-    
-});
+}
