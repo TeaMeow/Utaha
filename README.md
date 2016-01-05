@@ -24,8 +24,12 @@
 2. [需求](#需求)
 
 3. [架構](#架構)
+
+4. [開始](#開始)
+
+  * 設置功能
  
-4. [標記重點](#標記重點)
+5. [標記重點](#標記重點)
 
   * [自訂樣式](#自訂樣式)
   
@@ -35,7 +39,11 @@
 
 # 範例
 
-![範例](http://imgur.com/x2KuEyg.png)
+假設你今天可能正在製作一個 CSS 的教學網站，
+
+下面就是採用詩羽的範例，會自動產生一個 HTML 原始碼，並自動畫上重點供大家檢閱。
+
+![範例](http://imgur.com/gct2W0e.png)
 
 &nbsp;
 
@@ -67,6 +75,49 @@
 
 </div>
 <!-- / 示範群組 -->
+```
+
+&nbsp;
+
+# 開始
+
+詩羽是一個函式，你需要透過 `utaha()` 來呼叫她，我們的建議是在網頁讀取完後才呼叫，
+
+基本上是這樣子：
+
+```javascript
+document.addEventListener('DOMContentLoaded', function()
+{ 
+    utaha();
+});
+```
+
+&nbsp;
+
+## 設置功能
+
+詩羽有幾個可自訂的功能。
+
+```javascript
+var options = 
+{
+    'exampleContainer' : '.example',  // 示範容器的類別名稱 
+    'previewContainer' : '.preview',  // 預覽容器的類別名稱
+    'codeConrainer'    : '.code',     // 原始碼容器的類別名稱
+    'insertBeforeCode' : '',          // 欲在原始碼之前插入的文字
+    'insertAfterCode'  : '',          // 欲在原始碼之後插入的文字
+}
+```
+
+&nbsp;
+
+接下來要套用的時候，在呼叫詩羽的時候傳入這個設置就可以了：
+
+```javascript
+utaha(options);
+
+/** 或者 */
+utaha({'insertAfterCode': '上述都是原始碼喔喔喔喔喔！'})
 ```
 
 &nbsp;
