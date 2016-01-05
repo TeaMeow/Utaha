@@ -1,2 +1,47 @@
+<p align="center">
+  <img src="http://imgur.com/WdzQQZE.png"/>
+</p>
+<p align="center">
+  <i>Realize the things you haven't realized</i>
+</p>
+
+&nbsp;
+
 # Utaha
-詩羽 - A JavaScript function to help you generate the HTML source code automatically.
+
+詩羽是一個 JavaScript 小型套件，通常用在 CSS UI 說明文件上，可以將某個指定容器
+
+轉換成 HTML 原始碼，並且標記其 CSS 樣式重點，輸出到另一個容器，類似「預覽」和「原始碼」的功能。
+
+請注意的是：**詩羽目前僅支援標記 CSS 類別名稱。**
+
+# 索引
+
+1. 範例
+2. 
+
+# 範例
+
+```html
+<!-- 群組 -->
+<div class="group">
+
+  <!-- 群組的標題 -->
+  <h2 class="title"></h2>
+  <!-- / 群組的標題 -->
+  
+  <!-- 示範的標題 -->
+  <h3 class="example-title"></h3>
+  <!-- / 示範的標題 -->
+  
+  <!-- 示範 -->
+  <div class="example"></div>
+  <!-- / 示範 -->
+  
+  <!-- 原始碼輸出區 -->
+  <div class="code"><div>
+  <!--/  原始碼輸出區 -->
+  
+</div>
+<!-- / 群組 -->
+```
