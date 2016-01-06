@@ -73,7 +73,7 @@ var utaha = function(options)
          * Mark
          */
         
-        if(typeof importantPart == 'undefined')
+        if(typeof importantPart == 'undefined' || importantPart == null)
             continue
         
         /** Convert the string to the array with each comma */
